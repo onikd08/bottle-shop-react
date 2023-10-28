@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
+
+import "./Cart.css";
 const Cart = ({ cartItem }) => {
   return (
-    <div>
+    <div className="cart-item">
       <img src={cartItem.img} alt="" />
+      <button>Remove</button>
     </div>
   );
 };
