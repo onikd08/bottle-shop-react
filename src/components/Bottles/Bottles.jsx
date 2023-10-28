@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import SingleBottle from "../SingleBottle/SingleBottle";
 
+import "./Bottles.css";
+
 const Bottles = () => {
   const [bottles, setBottles] = useState([]);
 
@@ -15,9 +17,11 @@ const Bottles = () => {
   return (
     <div>
       <h2>Total Bottles: {bottles.length}</h2>
-      {bottles.map((bottle) => (
-        <SingleBottle key={bottle.id} bottle={bottle}></SingleBottle>
-      ))}
+      <section className="bottles-container">
+        {bottles.map((bottle) => (
+          <SingleBottle key={bottle.id} bottle={bottle}></SingleBottle>
+        ))}
+      </section>
     </div>
   );
 };

@@ -1,0 +1,8 @@
+.bottle-card > img {
+  width: 200px;
+}
+
+.bottle-card {
+  border: 2px solid seagreen;
+  border-radius: 15px;
+}
