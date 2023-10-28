@@ -1,9 +1,12 @@
 import "./App.css";
+import Bottles from "./components/Bottles/Bottles";
+import SingleBottle from "./components/SingleBottle/SingleBottle";
 
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      <Bottles></Bottles>
+      <SingleBottle></SingleBottle>
     </>
   );
 }
