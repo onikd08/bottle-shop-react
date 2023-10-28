@@ -21,6 +21,24 @@ const Bottles = () => {
     };
     loadBottles();
   }, []);
+
+  useEffect(() => {
+    const loadCartItems = () => {
+      const storedCart = LocalStorage.getItems();
+      let currentCartItems = [];
+      if (bottles.length > 0) {
+        for (let i = 0; i < storedCart.length; i++) {
+          const storedCartBottleId = storedCart[i];
+          currentCartItems.push(
+            bottles.find((item) => item.id === storedCartBottleId)
+          );
+        }
+      }
+      setCartItems(currentCartItems);
+    };
+    loadCartItems();
+  }, [bottles]);
+
   return (
     <div>
       <h2>Total items in Cart: {cartItems.length}</h2>
