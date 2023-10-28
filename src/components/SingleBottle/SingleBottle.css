@@ -6,3 +6,12 @@
   border: 2px solid seagreen;
   border-radius: 15px;
 }
+
+.bottle-card > button {
+  margin-bottom: 10px;
+  background-color: seagreen;
+}
+
+.bottle-card > button:hover {
+  background-color: green;
+}
