@@ -3,6 +3,7 @@ import SingleBottle from "../SingleBottle/SingleBottle";
 
 import "./Bottles.css";
 import Cart from "../Cart/Cart";
+import { LocalStorage } from "../../Utilities/localStorage";
 
 const Bottles = () => {
   const [bottles, setBottles] = useState([]);
@@ -10,6 +11,7 @@ const Bottles = () => {
 
   const handlePurchaseButton = (bottle) => {
     setCartItems([...cartItems, bottle]);
+    LocalStorage.addItem(bottle.id);
   };
   useEffect(() => {
     const loadBottles = async () => {
