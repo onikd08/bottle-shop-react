@@ -13,6 +13,18 @@ const Bottles = () => {
     setCartItems([...cartItems, bottle]);
     LocalStorage.addItem(bottle.id);
   };
+
+  const handleRemoveButton = (bottleId) => {
+    const index = cartItems.findIndex((item) => item.id === bottleId);
+    if (index > -1) {
+      //making copy
+      const currentCartItems = cartItems.slice();
+      //remove 1 element starting from that index
+      currentCartItems.splice(index, 1);
+      setCartItems(currentCartItems);
+      LocalStorage.removeItem(bottleId);
+    }
+  };
   useEffect(() => {
     const loadBottles = async () => {
       const res = await fetch("bottles.json");
@@ -44,7 +56,11 @@ const Bottles = () => {
       <h2>Total items in Cart: {cartItems.length}</h2>
       <section className="cart-container">
         {cartItems.map((item, idx) => (
-          <Cart key={idx} cartItem={item}></Cart>
+          <Cart
+            key={idx}
+            cartItem={item}
+            handleRemoveButton={handleRemoveButton}
+          ></Cart>
         ))}
       </section>
       <h2>Available Bottles: {bottles.length}</h2>
