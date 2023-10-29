@@ -4,6 +4,7 @@ import SingleBottle from "../SingleBottle/SingleBottle";
 import "./Bottles.css";
 import Cart from "../Cart/Cart";
 import { LocalStorage } from "../../Utilities/localStorage";
+import { calculateCartTotal } from "../../Utilities/calculateTotal";
 
 const Bottles = () => {
   const [bottles, setBottles] = useState([]);
@@ -54,6 +55,7 @@ const Bottles = () => {
   return (
     <div>
       <h2>Total items in Cart: {cartItems.length}</h2>
+      <p>Total Price: {calculateCartTotal(cartItems)}$</p>
       <section className="cart-container">
         {cartItems.map((item, idx) => (
           <Cart
